@@ -1,0 +1,12 @@
+FROM docker.io/ollama/ollama:latest AS ollama
+# VPS variant uses CPU inference; omit the large GPU runtimes from the final image.
+RUN rm -rf /usr/lib/ollama/cuda* /usr/lib/ollama/mlx_cuda* /usr/lib/ollama/vulkan* /usr/lib/ollama/rocm*
+FROM localhost/joker-bot:latest
+USER root
+COPY --from=ollama /bin/ollama /usr/local/bin/ollama
+COPY --from=ollama /usr/lib/ollama /usr/local/lib/ollama
+COPY container_start.py /app/container_start.py
+RUN mkdir -p /models && chown 1000:1000 /models
+ENV HOME=/tmp OLLAMA_HOST=127.0.0.1:11434 OLLAMA_MODELS=/models OLLAMA_NO_CLOUD=1 JOKER_HTTP_HOST=0.0.0.0
+USER 1000:1000
+CMD ["python", "container_start.py"]

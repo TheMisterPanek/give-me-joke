@@ -1,0 +1,4 @@
+interface:
+  display_name: "Joker"
+  short_description: "Find a relevant joke through the Joker HTTP API"
+  default_prompt: "Use $joker to find a joke related to this situation."

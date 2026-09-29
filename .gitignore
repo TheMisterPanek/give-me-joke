@@ -1,0 +1,44 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Raw/personal data dumps and the RAG store built from them
+data/
+.env
+.env.*
+!.env.example
+jokes.json
+*.tar
+*.tar.gz
+*.npy
+entries.jsonl
+reactions.json
+.pytest_cache/
+.claude/
+.codex/
+datasets/
+exports/
+models/
+# Private datasets and generated artifacts, wherever they are placed.
+*.json
+*.jsonl
+*.csv
+*.tsv
+*.parquet
+*.arrow
+*.txt
+!requirements*.txt
+*.npz
+*.pkl
+*.sqlite*
+*.db
+*.zip
+*.7z
+*.gz

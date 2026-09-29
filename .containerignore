@@ -1,0 +1,11 @@
+*
+!Containerfile
+!requirements-bot.txt
+!bot.py
+!store.py
+!embeddings.py
+!Containerfile.vps
+!container_start.py
+!reactions.py
+!retrieval.py
+!api.py
